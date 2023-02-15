@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "AdPushup Ops Extension",
+  "description": "AdPushup Ops Extension",
+  "version": "1.0.0",
+  "background": {
+    "service_worker": 
+        "background.js"
+},
+"content_scripts": [
+  {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["./static/js/content.js"]
+  }
+],
+"web_accessible_resources": [
+    {
+        "matches": ["<all_urls>"],
+        "resources": ["inject-script.js"]
+    }
+],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "AdPushup Ops Extension"
+  },
+  "permission": [ "storage",
+  "tabs",
+  "activeTab",
+  "declarativeContent",
+  "scripting"]
+}
